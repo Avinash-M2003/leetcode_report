@@ -143,7 +143,7 @@ const LeetCodeEvaluator = () => {
         setFileName("");
         try {
             if (leetcodeId.length > 0) { // Check if leetcodeId is not empty
-                const requests = leetcodeId.map(id => axios.get(`http://localhost:3000/${id}`));
+                const requests = leetcodeId.map(id => axios.get(`http://localhost:3000/api/${id}`));
                 const responses = await Promise.all(requests);
                 const data = responses.map(res => res.data);
                 setRep(data);

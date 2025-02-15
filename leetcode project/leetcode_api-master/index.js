@@ -31,7 +31,7 @@ let leet = require('./leetcode');
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-app.get('/:id', specificLimiter, leet.leetcode);
+app.get('/api/:id', specificLimiter, leet.leetcode);
 
 app.listen(3000, () => {
     console.log(`App is running on port 3000`);

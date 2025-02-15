@@ -1,7 +1,13 @@
 {
-    "version": 2,
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/excelr_api-master/index.js" },
-      { "src": "/(.*)", "dest": "/excelr-leetcode-evaluator/index.html" }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    { "src": "excelr-leetcode-evaluator/package.json", "use": "@vercel/static-build", "config": { "distDir": "excelr-leetcode-evaluator/build" } },
+    { "src": "leetcode_api-master/index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/leetcode_api-master/index.js" },
+    { "src": "/(.*)", "dest": "/excelr-leetcode-evaluator/build/index.html" }
+  ],
+  "headers": [
+    { "source": "**/*.js", "headers": [{ "key": "Content-Type", "value": "application/javascript" }] }]
+}
