@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/excelr_api-master/index.js" },
+      { "src": "/(.*)", "dest": "/excelr-leetcode-evaluator/index.html" }
+    ]
+  }
